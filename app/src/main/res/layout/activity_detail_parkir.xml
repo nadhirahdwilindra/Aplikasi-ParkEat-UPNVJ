@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F7F7">
+
+    <!-- HEADER -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="#557d2e"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail Area Parkir"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Informasi lengkap area parkir yang dipilih."
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imgDetail"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/parking_icon" />
+
+
+    <TextView
+        android:id="@+id/tvNamaDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Area Parkir FEB"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+
+
+    <TextView
+        android:id="@+id/tvLokasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lokasi"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"/>
+
+
+    <TextView
+        android:id="@+id/tvMotorDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Motor : 0"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="30dp"/>
+
+
+    <TextView
+        android:id="@+id/tvMobilDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mobil : 0"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"/>
+
+
+    <TextView
+        android:id="@+id/tvStatusDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"/>
+
+
+    <Button
+        android:id="@+id/btnGunakan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gunakan Area Ini"
+        android:layout_margin="25dp"
+        android:backgroundTint="#557d2e"/>
+
+</LinearLayout>

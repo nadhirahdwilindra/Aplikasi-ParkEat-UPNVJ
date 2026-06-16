@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="14dp"
+    android:background="@android:color/white"
+    android:layout_marginBottom="10dp"
+    android:elevation="3dp">
+
+    <!-- GAMBAR WARUNG -->
+
+    <ImageView
+        android:id="@+id/imgWarungKeranjang"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/warung_placeholder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- NAMA WARUNG -->
+
+    <TextView
+        android:id="@+id/tvNamaWarungKeranjang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nama Warung"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+
+        app:layout_constraintStart_toEndOf="@id/imgWarungKeranjang"
+        app:layout_constraintTop_toTopOf="@id/imgWarungKeranjang"
+        app:layout_constraintEnd_toStartOf="@id/btnHapusWarung"/>
+
+    <!-- PREVIEW MENU -->
+
+    <TextView
+        android:id="@+id/tvPreviewMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="mie ayam, bakso, es teh"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+
+        app:layout_constraintStart_toStartOf="@id/tvNamaWarungKeranjang"
+        app:layout_constraintTop_toBottomOf="@id/tvNamaWarungKeranjang"
+        app:layout_constraintEnd_toEndOf="@id/tvNamaWarungKeranjang"/>
+
+    <!-- LIHAT DETAIL -->
+
+    <TextView
+        android:id="@+id/tvLihatDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lihat selengkapnya >"
+        android:textColor="#5B7F2C"
+        android:textSize="13sp"
+        android:layout_marginTop="4dp"
+
+        app:layout_constraintStart_toStartOf="@id/tvPreviewMenu"
+        app:layout_constraintTop_toBottomOf="@id/tvPreviewMenu"/>
+
+    <!-- HAPUS WARUNG -->
+
+    <ImageView
+        android:id="@+id/btnHapusWarung"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

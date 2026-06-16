@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Warna utama aplikasi -->
+    <color name="primary">#557D2E</color>
+    <color name="primary_dark">#3F5E21</color>
+    <color name="accent">#7FAE3A</color>
+
+    <!-- Warna text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#6B7C5A</color>
+
+    <!-- Background -->
+    <color name="background">#FFFFFF</color>
+
+    <!-- Splash & halaman utama -->
+    <color name="splash_bg">#557D2E</color>
+
+</resources>
