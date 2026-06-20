@@ -92,6 +92,36 @@
         android:layout_marginStart="30dp"/>
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih Kendaraan"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"/>
+
+    <RadioGroup
+        android:id="@+id/rgKendaraan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp">
+
+        <RadioButton
+            android:id="@+id/rbMotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Motor"/>
+
+        <RadioButton
+            android:id="@+id/rbMobil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobil"/>
+
+    </RadioGroup>
+
     <Button
         android:id="@+id/btnGunakan"
         android:layout_width="match_parent"

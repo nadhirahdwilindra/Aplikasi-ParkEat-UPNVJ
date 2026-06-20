@@ -34,7 +34,11 @@ class ParkirAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val parkir = listParkir[position]
 
-        holder.imgParkir.setImageResource(parkir.gambar)
+        if (parkir.gambar != 0) {
+            holder.imgParkir.setImageResource(parkir.gambar)
+        } else {
+            holder.imgParkir.setImageResource(R.drawable.parking_icon)
+        }
         holder.tvNamaArea.text = parkir.namaArea
         holder.tvMotor.text = "🚲 Motor : ${parkir.motor} Slot"
         holder.tvMobil.text = "🚗 Mobil : ${parkir.mobil} Slot"

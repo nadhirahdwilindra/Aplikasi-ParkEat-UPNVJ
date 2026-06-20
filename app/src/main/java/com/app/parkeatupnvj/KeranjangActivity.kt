@@ -2,22 +2,32 @@ package com.app.parkeatupnvj
 
 import android.os.Bundle
 import android.widget.ListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.app.parkeatupnvj.adapter.KeranjangAdapter
+import com.app.parkeatupnvj.database.DatabaseKeranjang
 import com.app.parkeatupnvj.model.CartWarung
-import com.app.parkeatupnvj.repository.CartManager
 
 class KeranjangActivity : AppCompatActivity() {
+
+    private lateinit var listView: ListView
+    private lateinit var dbKeranjang: DatabaseKeranjang
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_keranjang)
 
-        val listView = findViewById<ListView>(R.id.listKeranjangWarung)
+        listView = findViewById(R.id.listKeranjangWarung)
 
-        val cartList = CartManager.cartList
+        dbKeranjang = DatabaseKeranjang(this)
 
-        // kelompokkan menu berdasarkan warung
+        tampilKeranjang()
+    }
+
+    private fun tampilKeranjang() {
+
+        val cartList = dbKeranjang.getSemuaKeranjang()
+
         val grouped = cartList.groupBy { it.namaWarung }
 
         val listWarung = grouped.map {
@@ -26,10 +36,25 @@ class KeranjangActivity : AppCompatActivity() {
                 namaWarung = it.key,
                 daftarMenu = it.value
             )
-
         }
 
-        val adapter = KeranjangAdapter(this, listWarung)
+        val adapter = KeranjangAdapter(
+            this,
+            listWarung
+        ) { warung ->
+
+            // delete semua menu dari warung ini
+            dbKeranjang.hapusWarung(warung.namaWarung)
+
+            Toast.makeText(
+                this,
+                "Keranjang ${warung.namaWarung} dihapus",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            // refresh list
+            tampilKeranjang()
+        }
 
         listView.adapter = adapter
     }

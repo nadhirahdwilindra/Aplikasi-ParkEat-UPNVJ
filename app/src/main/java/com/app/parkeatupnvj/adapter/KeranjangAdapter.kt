@@ -12,20 +12,15 @@ import com.app.parkeatupnvj.model.CartWarung
 
 class KeranjangAdapter(
     private val context: Context,
-    private val listWarung: List<CartWarung>
+    private val listWarung: List<CartWarung>,
+    private val onDeleteClick: (CartWarung) -> Unit
 ) : BaseAdapter() {
 
-    override fun getCount(): Int {
-        return listWarung.size
-    }
+    override fun getCount(): Int = listWarung.size
 
-    override fun getItem(position: Int): Any {
-        return listWarung[position]
-    }
+    override fun getItem(position: Int): Any = listWarung[position]
 
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
-    }
+    override fun getItemId(position: Int): Long = position.toLong()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
@@ -35,20 +30,26 @@ class KeranjangAdapter(
         val imgWarung = view.findViewById<ImageView>(R.id.imgWarungKeranjang)
         val tvNamaWarung = view.findViewById<TextView>(R.id.tvNamaWarungKeranjang)
         val tvPreviewMenu = view.findViewById<TextView>(R.id.tvPreviewMenu)
+        val btnHapus = view.findViewById<ImageView>(R.id.btnHapusWarung)
 
         val warung = listWarung[position]
 
         tvNamaWarung.text = warung.namaWarung
 
-        // preview 3 menu pertama
         val previewMenu = warung.daftarMenu
             .take(3)
-            .joinToString(", ") { it.namaMenu }
+            .joinToString(", ") {
+                "${it.namaMenu} (${it.jumlah}x)"
+            }
 
         tvPreviewMenu.text = previewMenu
 
-        // set gambar warung sesuai nama
         imgWarung.setImageResource(getGambarWarung(warung.namaWarung))
+
+        // tombol X
+        btnHapus.setOnClickListener {
+            onDeleteClick(warung)
+        }
 
         return view
     }
@@ -58,7 +59,6 @@ class KeranjangAdapter(
         val n = nama.lowercase()
 
         return when {
-
             n.contains("heny") -> R.drawable.kantin_heny
             n.contains("arimby") -> R.drawable.kantin_arimby
             n.contains("prayata") -> R.drawable.prayata_resto
@@ -74,7 +74,6 @@ class KeranjangAdapter(
             n.contains("titik") -> R.drawable.kantin_titik_18
             n.contains("bunda") -> R.drawable.kantin_bunda
             n.contains("dapur mamah") -> R.drawable.dapur_mamah
-
             else -> R.drawable.warung_placeholder
         }
     }

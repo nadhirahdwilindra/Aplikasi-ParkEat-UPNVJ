@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.app.parkeatupnvj.model.CartItem
+import com.app.parkeatupnvj.database.DatabaseKeranjang
 import com.app.parkeatupnvj.repository.CartManager
 import android.content.Intent
 
@@ -17,6 +18,7 @@ class DetailMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_menu)
+        val dbKeranjang = DatabaseKeranjang(this)
 
         val imgMenu = findViewById<ImageView>(R.id.imgMenuDetail)
         val tvNama = findViewById<TextView>(R.id.tvNamaMenuDetail)
@@ -62,7 +64,7 @@ class DetailMenuActivity : AppCompatActivity() {
                 namaWarung = namaWarung ?: ""
             )
 
-            CartManager.tambahKeKeranjang(item)
+            dbKeranjang.tambahKeKeranjang(item)
 
             Toast.makeText(this, "Menu ditambahkan ke keranjang", Toast.LENGTH_SHORT).show()
 
